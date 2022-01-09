@@ -12,8 +12,6 @@ class PinRepositoryImpl implements PinRepository{
 
     final pinBaseFile = File('$path/pin_base.json');
 
-    print(!pinBaseFile.existsSync());
-
     if(!pinBaseFile.existsSync()) {
       await pinBaseFile.create();
 
