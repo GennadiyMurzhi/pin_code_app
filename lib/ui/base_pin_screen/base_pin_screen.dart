@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
-import 'package:pin_code_app/presentation/base_pin_screen/widgets/input_indicator.dart';
-import 'package:pin_code_app/presentation/base_pin_screen/widgets/pin_key_board.dart';
+import 'package:pin_code_app/ui/base_pin_screen/widgets/input_indicator.dart';
+import 'package:pin_code_app/ui/base_pin_screen/widgets/pin_key_board.dart';
 
 class BasePinScreen extends StatelessWidget{
   final String title;
@@ -42,8 +42,8 @@ class BasePinScreen extends StatelessWidget{
                 fontWeight: FontWeight.w300
             ),
           ),
-          actions: [
-            const Center(
+          actions: const  [
+            Center(
               child: Text(
                 'Use 4-digits PIN',
                 style: TextStyle(
@@ -52,14 +52,14 @@ class BasePinScreen extends StatelessWidget{
                 ),
               ),
             ),
-            SizedBox(width: MediaQuery.of(context).size.width / 100 * 5.3)
+            SizedBox(width: 10)
           ],
           centerTitle: true,
         ) : PreferredSize(child: Container(), preferredSize: Size.zero),
         body: Center(
               child: Column(
                         children: [
-                          Spacer(),
+                          const Spacer(),
                           Text(
                             title,
                             style: const TextStyle(
@@ -67,14 +67,14 @@ class BasePinScreen extends StatelessWidget{
                                 fontSize: 25
                             ),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           InputIndicator(countNumberNow),
-                          Spacer(flex: 2),
+                          const Spacer(flex: 2),
                           PinKeyBoard(
                             numberButtonOnPressed: numberButtonOnPressed,
                             backspaceOnPressed: backspaceOnPressed,
                           ),
-                          Spacer()
+                          const Spacer()
                         ],
                       ),
                 ),

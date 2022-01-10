@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pin_code_app/injection_container.dart';
-import 'package:pin_code_app/presentation/base_pin_screen/base_pin_screen.dart';
+import 'package:pin_code_app/ui/base_pin_screen/base_pin_screen.dart';
 
 import 'cubit/pin_cubit.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'presentation/create_pin_code_screen/create_pin_code_screen.dart';
-import 'presentation/menu_screen.dart';
-import 'presentation/authentication_screen/authentication_screen.dart';
+import 'ui/create_pin_code_screen/create_pin_code_screen.dart';
+import 'ui/menu_screen/menu_screen.dart';
+import 'ui/authentication_screen/authentication_screen.dart';
 
 class PinCodeApp extends StatelessWidget {
   const PinCodeApp({Key? key}) : super(key: key);

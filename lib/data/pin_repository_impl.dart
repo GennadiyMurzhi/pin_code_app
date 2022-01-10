@@ -1,51 +1,34 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:path_provider/path_provider.dart';
 import 'package:pin_code_app/domain/pin_repository.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PinRepositoryImpl implements PinRepository{
+  final SharedPreferences sharedPreferences;
+
+  PinRepositoryImpl({required this.sharedPreferences});
+
   @override
-  Future<void> writePin(String enteredPin) async {
-    final directory = await getApplicationDocumentsDirectory();
-    final path = directory.path;
+  Future<void> writePin(String enteredPin) {
+    try{
+      int lastKey = int.parse(sharedPreferences.getKeys().last);
 
-    final pinBaseFile = File('$path/pin_base.json');
-
-    if(!pinBaseFile.existsSync()) {
-      await pinBaseFile.create();
-
-      final Map<String, String>  pinBase = {
-        "1" : enteredPin
-      };
-
-      pinBaseFile.writeAsString(jsonEncode(pinBase));
-    } else {
-      final Map<String, dynamic>  pinBase = json.decode(
-          await pinBaseFile.readAsString());
-
-      pinBase[(int.parse(pinBase.keys.last) + 1).toString()] = enteredPin;
-
-      pinBaseFile.writeAsString(jsonEncode(pinBase));
+      return sharedPreferences.setString('${++lastKey}', enteredPin);
+    } on StateError {
+      return sharedPreferences.setString('1', enteredPin);
     }
 
   }
 
   @override
   Future<bool> checkPin(String enteredPin) async {
-    final directory = await getApplicationDocumentsDirectory();
-    final path = directory.path;
+    for(final key in sharedPreferences.getKeys()){
+      final pinFromBase = sharedPreferences.get(key);
 
-    final pinBaseFile = File('$path/pin_base.json');
-
-    if(pinBaseFile.existsSync()) {
-      final Map<String, dynamic> pinBase =
-          json.decode(await pinBaseFile.readAsString());
-
-      return pinBase.containsValue(enteredPin);
-    } else {
-      return false;
+      if(pinFromBase == enteredPin){
+        return true;
+      }
     }
+
+    return false;
   }
 
 }

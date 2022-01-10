@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pin_code_app/ui/menu_screen/widgets/menu_button.dart';
 
 class MenuScreen extends StatelessWidget{
   const MenuScreen({Key? key}) : super(key: key);
@@ -19,20 +19,4 @@ class MenuScreen extends StatelessWidget{
     );
   }
 
-}
-
-class MenuButton extends StatelessWidget{
-  final String buttonText;
-  final String routeName;
-
-  const MenuButton({Key? key,
-    required this.buttonText,
-    required this.routeName}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return CupertinoButton(
-        onPressed: () => Navigator.of(context).pushNamed(routeName),
-        child: Text(buttonText));
-  }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pin_code_app/injection_container.dart';
-import 'package:pin_code_app/presentation/authentication_screen/authentication_cubit.dart';
-import 'package:pin_code_app/presentation/base_pin_screen/base_pin_screen.dart';
+import 'package:pin_code_app/ui/authentication_screen/authentication_cubit.dart';
+import 'package:pin_code_app/ui/base_pin_screen/base_pin_screen.dart';
 
 class AuthenticationScreen extends StatelessWidget {
   const AuthenticationScreen({Key? key}) : super(key: key);

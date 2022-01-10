@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_app/core/usecase.dart';
 import 'package:pin_code_app/domain/usecases/check_pin.dart';
-import 'package:pin_code_app/presentation/base_pin_screen/widgets/pin_dialog.dart';
+import 'package:pin_code_app/ui/base_pin_screen/widgets/pin_dialog.dart';
 
 
 class AuthenticationCubit extends Cubit<int> {
