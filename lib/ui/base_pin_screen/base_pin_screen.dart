@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 
 import 'package:flutter/material.dart';
 import 'package:pin_code_app/ui/base_pin_screen/widgets/input_indicator.dart';
@@ -27,6 +27,7 @@ class BasePinScreen extends StatelessWidget{
           backgroundColor: const Color(0x00000000),
           foregroundColor: const Color(0x00000000),
           shadowColor: const Color(0x00000000),
+          elevation: 0,
           leading: InkWell(
             onTap: () => Navigator.of(context).pop(),
             child: const Icon(
